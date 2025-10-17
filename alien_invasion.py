@@ -38,6 +38,10 @@ class AlienInvasion:
                 if event.key == pygame.K_RIGHT:
                     # Move the ship to the right
                     self.ship.rect.x += 10
+            elif event.type == pygame.KEYUP:
+                if event.key == pygame.K_RIGHT:
+                    # Stop moving the ship to the right
+                    self.ship.moving_right = False
 
 if __name__ == '__main__':
     # Make a game instance, and run the game.
