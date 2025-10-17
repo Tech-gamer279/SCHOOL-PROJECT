@@ -1,29 +1,25 @@
 import sys
-
 import pygame
-
 from settings import Settings
-
 from ship import Ship
 
 class AlienInvasion:
     """Overall class to manage game assets and behavior."""
 
     def __init__(self):
-
         pygame.init()
         self.clock = pygame.time.Clock()
         self.settings = Settings()
 
-        self.screen = pygame.display.set_mode(
-            (self.settings.screen_width, self.settings.screen_height))
-        
-        self.screen = pygame.display.set_mode((1200, 800))
+        # Create the game window
+        self.screen = pygame.display.set_mode((
+            self.settings.screen_width,
+            self.settings.screen_height))
         pygame.display.set_caption("Alien Invasion")
 
         self.ship = Ship(self)
-        # Set the background color.
         self.bg_color = (230, 230, 230)
+        # Remove duplicate bg_color definition since it's in settings
     
     def run_game(self):
         """Starts the loop for the game."""
@@ -32,11 +28,12 @@ class AlienInvasion:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     sys.exit()
+            
             # Redraw the screen during each pass through the loop.
             self.screen.fill(self.settings.bg_color)
-
             self.ship.blitme()
-            # draw screen in loop
+            
+            # draw screen in loop 
             pygame.display.flip()
             self.clock.tick(60)
 
