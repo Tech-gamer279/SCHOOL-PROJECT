@@ -16,6 +16,8 @@ class AlienInvasion:
             self.settings.screen_width,
             self.settings.screen_height))
         pygame.display.set_caption("Alien Invasion")
+        self.screen_width = 800
+        self.screen_height = 600
         self.ship = Ship(self)
         
     def run_game(self):
@@ -26,19 +28,6 @@ class AlienInvasion:
             self.ship.blitme()
             pygame.display.flip()
             self.clock.tick(60)
-        
-    class Settings:
-        """A class to store all settings for Alien Invasion."""
-        
-        def __init__(self):
-            """Initialize the game's settings."""
-            # Screen settings
-            self.screen_width = 800
-            self.screen_height = 600
-            self.bg_color = (230, 230, 230)
-            
-            # Ship settings
-            self.ship_speed = 1.5
 
     def check_events(self):
         """Respond to keypresses and mouse events."""
