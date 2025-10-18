@@ -13,7 +13,9 @@ class Ship:
 
         # Start each new ship at the bottom center of the screen
         self.rect.midbottom = self.screen_rect.midbottom
-        self
+        self.settings = ai_game.settings
+
+        self.x = float(self.rect.x)
 
         # Movement flags
         self.moving_right = False
