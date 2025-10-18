@@ -13,6 +13,7 @@ class Ship:
 
         # Start each new ship at the bottom center of the screen
         self.rect.midbottom = self.screen_rect.midbottom
+        self
 
         # Movement flags
         self.moving_right = False
