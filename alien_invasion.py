@@ -91,6 +91,11 @@ class AlienInvasion:
         """Create the fleet"""
         # make an alien
         alien = Alien(self)
+        alien_width = alien.rect.width
+
+        current_x = alien_width
+        while current_x < (self.settings.screen_width - 2 * alien_width):
+        alien = Alien(self)
         self.aliens.add(alien)
 
 if __name__ == '__main__':
