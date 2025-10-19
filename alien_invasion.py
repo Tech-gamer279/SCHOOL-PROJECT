@@ -95,8 +95,11 @@ class AlienInvasion:
 
         current_x = alien_width
         while current_x < (self.settings.screen_width - 2 * alien_width):
-            alien = Alien(self)
-            self.aliens.add(alien)
+            new_alien = Alien(self)
+            new_alien.x = current_x
+            new_alien.rect.x = current_x
+            self.aliens.add(new_alien)
+            current_x += alien_width * 2
 
 if __name__ == '__main__':
     # Make a game instance and run the game.
