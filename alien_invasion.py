@@ -23,7 +23,7 @@ class AlienInvasion:
         self.bullets = pygame.sprite.Group()
         self.aliens = pygame.sprite.Group()
 
-        self._create_fleet()
+        self._create_fleet
 
     def run_game(self):
         """Start the main game loop."""
@@ -98,7 +98,7 @@ class AlienInvasion:
 
         current_x = alien_width
         while current_x < (self.settings.screen_width - 2 * alien_width):
-            self._create_alien(current_x)
+            self._create_alien
             current_x += alien_width * 2
             new_alien = Alien(self)
             new_alien.x = current_x
@@ -109,7 +109,6 @@ class AlienInvasion:
     def _create_alien(self, alien_x):
         """A new alien is created and placed in the row."""
         new_alien = Alien(self)
-        new_alien.x = x_position
         new_alien.rect.x = x_position
         self.aliens.add(new_alien)
 
