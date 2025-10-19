@@ -44,7 +44,7 @@ class AlienInvasion:
         self.game_active = False
 
         # Make the Play button.
-        self.play_button = Button(self, "Play")
+        self.play_button = Button(self, "Welcome!")
 
     def run_game(self):
         """Start the main loop for the game."""
