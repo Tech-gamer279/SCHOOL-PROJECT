@@ -1,5 +1,5 @@
 import sys
-from time import sleep
+import asyncio
 
 import pygame
 
@@ -20,10 +20,6 @@ class AlienInvasion:
         pygame.init()
         self.clock = pygame.time.Clock()
         self.settings = Settings()
-
-        self.screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
-        self.settings.screen_width = self.screen.get_rect().width
-        self.settings.screen_height = self.screen.get_rect().height
 
         self.screen = pygame.display.set_mode(
             (self.settings.screen_width, self.settings.screen_height))
@@ -46,7 +42,7 @@ class AlienInvasion:
         # Make the Play button.
         self.play_button = Button(self, "Welcome!")
 
-    def run_game(self):
+    async def run_game(self):
         """Start the main loop for the game."""
         while True:
             self._check_events()
@@ -58,6 +54,7 @@ class AlienInvasion:
 
             self._update_screen()
             self.clock.tick(60)
+            await asyncio.sleep(0)
 
     def _check_events(self):
         """Respond to keypresses and mouse events."""
@@ -170,8 +167,6 @@ class AlienInvasion:
             self._create_fleet()
             self.ship.center_ship()
 
-            # Pause.
-            sleep(1.5)
         else:
             self.game_active = False
             pygame.mouse.set_visible(True)
@@ -255,4 +250,4 @@ class AlienInvasion:
 if __name__ == '__main__':
     # Make a game instance, and run the game.
     ai = AlienInvasion()
-    ai.run_game()
+    asyncio.run(ai.run_game())
